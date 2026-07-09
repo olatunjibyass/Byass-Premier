@@ -62,10 +62,10 @@ import ContactForm from './components/ContactForm';
 import InteractiveMap from './components/InteractiveMap';
 import PortalDashboard from './components/PortalDashboard';
 
-// Image paths from asset generation
-const IMAGE_HERO = '/src/assets/images/hero_caregiver_senior_1783614256434.jpg';
-const IMAGE_KITCHEN = '/src/assets/images/caregiver_kitchen_1783614267712.jpg';
-const IMAGE_NURSE = '/src/assets/images/compassionate_caregiver_1783614278094.jpg';
+// Image paths from asset generation imported statically for production reliability
+const IMAGE_HERO = 'https://i.postimg.cc/134yyr35/Capture.png';
+const IMAGE_KITCHEN = 'https://i.postimg.cc/jSnB8gjp/Capture1.png';
+import IMAGE_NURSE from './assets/images/compassionate_caregiver_1783614278094.jpg';
 
 // Helper to resolve service icons
 const getServiceIcon = (iconName: string, className = "w-6 h-6") => {
@@ -858,13 +858,13 @@ export default function App() {
                         name: 'Teejay Byass',
                         role: 'Director',
                         credentials: 'Care Administrator',
-                        image: 'https://i.postimg.cc/MXWSQyw3/image.png',
+                        image: 'https://i.postimg.cc/44cNj5SG/unnamed-(1).png',
                       },
                       {
                         name: 'Princess Heirsmac',
                         role: 'Manager',
                         credentials: 'Care Coordinator',
-                        image: 'https://i.postimg.cc/jC6Xn7Xm/image.png',
+                        image: 'https://i.postimg.cc/Pf9Fcb8X/Whats-App-Image-2026-07-09-at-3-46-36-PM.jpg',
                       }
                     ].map((person) => (
                       <div key={person.name} className="bg-white border border-gray-200 rounded-2xl p-5 shadow-xs flex flex-col justify-between">
