@@ -1,0 +1,6 @@
+{
+  "name": "Byass Premier Health Care",
+  "description": "A modern, professional, and trustworthy home healthcare website providing compassionate, reliable, and personalized care services.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
