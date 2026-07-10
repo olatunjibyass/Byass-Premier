@@ -65,7 +65,9 @@ import PortalDashboard from './components/PortalDashboard';
 // Image paths from asset generation imported statically for production reliability
 const IMAGE_HERO = 'https://i.postimg.cc/134yyr35/Capture.png';
 const IMAGE_KITCHEN = 'https://i.postimg.cc/jSnB8gjp/Capture1.png';
-import IMAGE_NURSE from './assets/images/compassionate_caregiver_1783614278094.jpg';
+const IMAGE_NURSE = 'https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=800&q=80';
+import IMAGE_TEEJAY from './assets/images/teejay_byass.png';
+import IMAGE_PRINCESS from './assets/images/princess_heirsmac.jpg';
 
 // Helper to resolve service icons
 const getServiceIcon = (iconName: string, className = "w-6 h-6") => {
@@ -690,8 +692,8 @@ export default function App() {
                           <div className="flex items-start gap-3 text-slate-600 mt-3">
                             <MapPin className="w-5 h-5 text-brand-blue-500 shrink-0 mt-0.5" />
                             <span className="text-sm">
-                              80 South Liberty Street,<br />
-                              Powell, Ohio 43065
+                              80 S Liberty Street<br />
+                              Powell Ohio 43065
                             </span>
                           </div>
                         </div>
@@ -858,13 +860,13 @@ export default function App() {
                         name: 'Teejay Byass',
                         role: 'Director',
                         credentials: 'Care Administrator',
-                        image: 'https://i.postimg.cc/44cNj5SG/unnamed-(1).png',
+                        image: IMAGE_TEEJAY,
                       },
                       {
                         name: 'Princess Heirsmac',
                         role: 'Manager',
                         credentials: 'Care Coordinator',
-                        image: 'https://i.postimg.cc/Pf9Fcb8X/Whats-App-Image-2026-07-09-at-3-46-36-PM.jpg',
+                        image: IMAGE_PRINCESS,
                       }
                     ].map((person) => (
                       <div key={person.name} className="bg-white border border-gray-200 rounded-2xl p-5 shadow-xs flex flex-col justify-between">
@@ -1282,8 +1284,8 @@ export default function App() {
                         <div className="flex items-start gap-3 text-slate-600 mt-2">
                           <MapPin className="w-5 h-5 text-brand-blue-500 shrink-0 mt-0.5" />
                           <span className="text-base font-medium">
-                            80 South Liberty Street,<br />
-                            Powell, Ohio 43065
+                            80 S Liberty Street<br />
+                            Powell Ohio 43065
                           </span>
                         </div>
                       </div>

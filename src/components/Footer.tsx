@@ -166,8 +166,8 @@ We accept clients and hire caregivers without regard to race, creed, religion, a
                 <MapPin className="w-5 h-5 text-brand-blue-400 shrink-0 mt-0.5" />
                 <span className="text-slate-400">
                   Byass Premier HQ<br />
-                  80 South Liberty Street,<br />
-                  Powell, Ohio 43065
+                  80 S Liberty Street<br />
+                  Powell Ohio 43065
                 </span>
               </li>
               <li className="flex items-center gap-2.5">

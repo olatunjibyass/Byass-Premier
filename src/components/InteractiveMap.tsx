@@ -137,7 +137,7 @@ export default function InteractiveMap() {
           )}
 
           <div className="mt-4 pt-3 border-t border-gray-100 text-[10px] text-gray-400 flex items-center justify-between">
-            <span>Powell, OH 43065</span>
+            <span>80 S Liberty Street, Powell Ohio 43065</span>
             <span>Phone support: (614) 296-3599</span>
           </div>
         </div>
