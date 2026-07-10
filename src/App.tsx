@@ -66,8 +66,8 @@ import PortalDashboard from './components/PortalDashboard';
 const IMAGE_HERO = 'https://i.postimg.cc/134yyr35/Capture.png';
 const IMAGE_KITCHEN = 'https://i.postimg.cc/jSnB8gjp/Capture1.png';
 const IMAGE_NURSE = 'https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=800&q=80';
-import IMAGE_TEEJAY from './assets/images/teejay_byass.png';
-import IMAGE_PRINCESS from './assets/images/princess_heirsmac.jpg';
+const IMAGE_TEEJAY = 'https://i.postimg.cc/CFBc9rgg/Whats-App-Image-2026-07-09-at-5-59-35-PM.jpg';
+const IMAGE_PRINCESS = 'https://i.postimg.cc/9VQ5DJm7/Whats-App-Image-2026-07-09-at-3-46-36-PM.jpg';
 
 // Helper to resolve service icons
 const getServiceIcon = (iconName: string, className = "w-6 h-6") => {
