@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { Heart, Phone, Mail, MapPin, ShieldCheck, Award, FileCheck, ExternalLink } from 'lucide-react';
+import { Heart, Phone, Mail, MapPin, ShieldCheck, Award, FileCheck, ExternalLink, Globe } from 'lucide-react';
 import { PageView } from '../types';
 
 interface FooterProps {
@@ -77,7 +77,10 @@ We accept clients and hire caregivers without regard to race, creed, religion, a
             <p className="text-sm text-slate-400 leading-relaxed">
               Compassionate, reliable, and highly personalized home care services that promote independence, safety, and comfort. Helping seniors and recovering adults live fulfilling lives in the comfort of their own homes.
             </p>
-            <div className="pt-2 flex flex-wrap gap-2.5">
+            <div className="py-1 text-xs font-semibold text-brand-blue-400 tracking-wide">
+              Compassion. Dignity. Independence.
+            </div>
+            <div className="pt-1 flex flex-wrap gap-2.5">
               <div className="flex items-center gap-1.5 px-3 py-1 bg-slate-800/80 rounded-full border border-slate-700/50 text-[11px] font-medium text-slate-300">
                 <ShieldCheck className="w-3.5 h-3.5 text-brand-sage-500" />
                 <span>Fully Licensed Agency</span>
@@ -98,6 +101,7 @@ We accept clients and hire caregivers without regard to race, creed, religion, a
               {[
                 { label: 'About Our Mission', view: 'about' as PageView },
                 { label: 'Our Specialty Services', view: 'services' as PageView },
+                { label: 'STNA Training Program', view: 'training' as PageView },
                 { label: 'Careers & Opportunities', view: 'careers' as PageView },
                 { label: 'Client Testimonials', view: 'testimonials' as PageView },
                 { label: 'Frequently Asked Questions', view: 'faq' as PageView },
@@ -107,7 +111,7 @@ We accept clients and hire caregivers without regard to race, creed, religion, a
                 <li key={link.view}>
                   <button
                     onClick={() => handlePageNav(link.view)}
-                    className="hover:text-white hover:translate-x-1 transition-all duration-200 flex items-center gap-1"
+                    className="hover:text-white hover:translate-x-1 transition-all duration-200 flex items-center gap-1 text-left"
                   >
                     <span>&rsaquo;</span>
                     <span>{link.label}</span>
@@ -161,25 +165,36 @@ We accept clients and hire caregivers without regard to race, creed, religion, a
             <h3 className="font-display font-semibold text-white tracking-wide uppercase text-sm border-l-2 border-brand-blue-500 pl-3">
               Office HQ
             </h3>
-            <ul className="space-y-3.5 text-sm">
+             <ul className="space-y-3.5 text-sm">
               <li className="flex items-start gap-2.5">
                 <MapPin className="w-5 h-5 text-brand-blue-400 shrink-0 mt-0.5" />
                 <span className="text-slate-400">
                   Byass Premier HQ<br />
                   80 S Liberty Street<br />
-                  Powell Ohio 43065
+                  Powell, OH 43065
                 </span>
               </li>
-              <li className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-brand-blue-400" />
-                <a href="tel:+16142963599" className="hover:text-white text-slate-400 transition-colors">
-                  (614) 296-3599
-                </a>
+              <li className="flex items-start gap-2.5">
+                <Phone className="w-4 h-4 text-brand-blue-400 mt-0.5" />
+                <div className="flex flex-col text-slate-400">
+                  <a href="tel:+16142963599" className="hover:text-white transition-colors">
+                    (614) 296-3599
+                  </a>
+                  <a href="tel:+16144016775" className="hover:text-white transition-colors">
+                    (614) 401-6775
+                  </a>
+                </div>
               </li>
               <li className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-brand-blue-400" />
                 <a href="mailto:info@byasspremier.com" className="hover:text-white text-slate-400 transition-colors">
                   info@byasspremier.com
+                </a>
+              </li>
+              <li className="flex items-center gap-2.5">
+                <Globe className="w-4 h-4 text-brand-blue-400" />
+                <a href="https://www.byasspremier.com" target="_blank" rel="noopener noreferrer" className="hover:text-white text-slate-400 transition-colors flex items-center gap-1">
+                  www.byasspremier.com
                 </a>
               </li>
             </ul>

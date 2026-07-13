@@ -3,37 +3,27 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState } from 'react';
-import { Search, Phone } from 'lucide-react';
+import React from 'react';
+import { Phone, GraduationCap, BookOpen } from 'lucide-react';
 import { PageView } from '../types';
 
 interface NavbarProps {
   currentView: PageView;
   setView: (view: PageView) => void;
-  onSearch: (query: string) => void;
   onOpenQuickBooking: () => void;
 }
 
-export default function Navbar({ currentView, setView, onSearch, onOpenQuickBooking }: NavbarProps) {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
-
+export default function Navbar({ currentView, setView, onOpenQuickBooking }: NavbarProps) {
   const navItems: { label: string; view: PageView }[] = [
     { label: 'Home', view: 'home' },
     { label: 'About Us', view: 'about' },
     { label: 'Our Services', view: 'services' },
+    { label: 'STNA Training', view: 'training' },
     { label: 'Careers', view: 'careers' },
     { label: 'Testimonials', view: 'testimonials' },
     { label: 'FAQs', view: 'faq' },
     { label: 'Contact Us', view: 'contact' },
   ];
-
-  const handleSearchSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (searchQuery.trim()) {
-      onSearch(searchQuery);
-    }
-  };
 
   const handleNavClick = (view: PageView) => {
     setView(view);
@@ -102,21 +92,18 @@ export default function Navbar({ currentView, setView, onSearch, onOpenQuickBook
 
           {/* Desktop Actions & Hotline - Right */}
           <div className="hidden md:flex items-center gap-2">
-            <form onSubmit={handleSearchSubmit} className="relative hidden xl:block">
-              <div className="flex items-center">
-                <input
-                  type="text"
-                  placeholder="Search care..."
-                  value={searchQuery}
-                  onChange={(e) => {
-                    setSearchQuery(e.target.value);
-                    onSearch(e.target.value);
-                  }}
-                  className="w-28 xl:w-36 pl-8 pr-3 py-1.5 rounded-full border border-gray-200 text-xs focus:ring-2 focus:ring-brand-blue-500 focus:outline-hidden transition-all duration-300"
-                />
-                <Search className="w-3 h-3 text-gray-400 absolute left-2.5 pointer-events-none" />
-              </div>
-            </form>
+            <button
+              onClick={() => handleNavClick('training')}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all shadow-xs uppercase tracking-wider ${
+                currentView === 'training'
+                  ? 'bg-emerald-700 text-white'
+                  : 'bg-emerald-600 hover:bg-emerald-700 text-white'
+              }`}
+              id="nav-become-stna-desktop"
+            >
+              <GraduationCap className="w-3.5 h-3.5" />
+              <span>Become A STNA</span>
+            </button>
 
             <a 
               href="tel:+16142963599" 
@@ -128,14 +115,15 @@ export default function Navbar({ currentView, setView, onSearch, onOpenQuickBook
             </a>
           </div>
 
-          {/* Mobile Actions: search toggle and call button - visible below md */}
+          {/* Mobile Actions: Become A STNA and call button - visible below md */}
           <div className="flex md:hidden items-center gap-1.5">
             <button
-              onClick={() => setIsSearchOpen(!isSearchOpen)}
-              className="p-1.5 text-gray-500 hover:text-brand-blue-600 rounded-lg hover:bg-gray-100 transition-colors"
-              aria-label="Toggle Search"
+              onClick={() => handleNavClick('training')}
+              className="flex items-center gap-1 px-2 py-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-[10px] font-bold uppercase tracking-wider transition-all"
+              id="nav-become-stna-mobile"
             >
-              <Search className="w-4.5 h-4.5" />
+              <GraduationCap className="w-3 h-3" />
+              <span>Become A STNA</span>
             </button>
             <a 
               href="tel:+16142963599" 
@@ -168,38 +156,6 @@ export default function Navbar({ currentView, setView, onSearch, onOpenQuickBook
           );
         })}
       </div>
-
-      {/* Mobile Search Row (expandable) */}
-      {isSearchOpen && (
-        <div className="md:hidden bg-brand-cream-50 border-t border-brand-cream-200 px-4 py-3 fade-in">
-          <form onSubmit={handleSearchSubmit} className="relative w-full">
-            <input
-              type="text"
-              placeholder="Search services, FAQs, careers..."
-              value={searchQuery}
-              onChange={(e) => {
-                setSearchQuery(e.target.value);
-                onSearch(e.target.value);
-              }}
-              className="w-full pl-9 pr-12 py-2 rounded-xl border border-gray-200 bg-white text-sm focus:ring-2 focus:ring-brand-blue-500 focus:outline-hidden"
-              autoFocus
-            />
-            <Search className="w-4 h-4 text-gray-400 absolute left-3 top-3 pointer-events-none" />
-            {searchQuery && (
-              <button
-                type="button"
-                onClick={() => {
-                  setSearchQuery('');
-                  onSearch('');
-                }}
-                className="absolute right-3 top-2.5 text-xs text-gray-400 hover:text-gray-600"
-              >
-                Clear
-              </button>
-            )}
-          </form>
-        </div>
-      )}
     </header>
   );
 }

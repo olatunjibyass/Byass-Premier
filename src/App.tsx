@@ -29,6 +29,7 @@ import {
   ShieldAlert,
   GraduationCap,
   Calendar,
+  Globe,
   Sparkles,
   HeartHandshake, 
   Smile, 
@@ -59,6 +60,7 @@ import Footer from './components/Footer';
 import BookingForm from './components/BookingForm';
 import CareersForm from './components/CareersForm';
 import ContactForm from './components/ContactForm';
+import STNATrainingForm from './components/STNATrainingForm';
 import InteractiveMap from './components/InteractiveMap';
 import PortalDashboard from './components/PortalDashboard';
 
@@ -271,7 +273,6 @@ export default function App() {
       <Navbar 
         currentView={currentView} 
         setView={(view) => { setView(view); setSearchQuery(''); }}
-        onSearch={(query) => setSearchQuery(query)}
         onOpenQuickBooking={() => setIsQuickBookingOpen(true)}
       />
 
@@ -1092,6 +1093,166 @@ export default function App() {
                   />
                 </div>
 
+              </motion.div>
+            )}
+
+            {/* VIEW: STNA TRAINING PROGRAM PAGE */}
+            {currentView === 'training' && (
+              <motion.div
+                key="training"
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -15 }}
+                transition={{ duration: 0.3 }}
+                className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10 pb-12"
+              >
+                {/* Header Block */}
+                <div className="text-center max-w-2xl mx-auto space-y-4">
+                  <span className="text-xs font-bold uppercase text-emerald-600 bg-emerald-50 px-3.5 py-1.5 rounded-full border border-emerald-100 tracking-widest inline-block">
+                    State Tested Nurse Aide Certification
+                  </span>
+                  <h1 className="font-display font-extrabold text-3xl sm:text-4xl text-brand-blue-950 tracking-tight">
+                    Byass Premier STNA Training Program
+                  </h1>
+                  <p className="text-sm text-gray-500 leading-relaxed">
+                    Kickstart your nursing career and gain professional license qualifications. We offer an intensive, high-support curriculum with direct clinical paths and flexible shifts.
+                  </p>
+                </div>
+
+                {/* Main Content Info Grid & Enrollment Form */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                  
+                  {/* Left Column: Program Details & Specs (7 cols) */}
+                  <div className="lg:col-span-7 space-y-6">
+                    {/* Key Highlights Card */}
+                    <div className="bg-gradient-to-br from-emerald-600 to-teal-800 text-white p-6 md:p-8 rounded-3xl shadow-sm space-y-6 relative overflow-hidden">
+                      <div className="absolute top-0 right-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:12px_12px] w-48 h-48 rounded-full" />
+                      
+                      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                        <div className="space-y-1">
+                          <h3 className="font-display font-black text-2xl uppercase tracking-wide">
+                            STNA Certification Course
+                          </h3>
+                          <div className="flex items-center gap-2 text-emerald-100 text-xs">
+                            <span className="w-2.5 h-2.5 rounded-full bg-emerald-300 animate-pulse" />
+                            <span>Now Enrolling • State-Approved Curriculum</span>
+                          </div>
+                        </div>
+                        <div className="bg-white/10 backdrop-blur-md px-4 py-2.5 rounded-2xl border border-white/20 text-center">
+                          <span className="text-[10px] block uppercase font-bold text-emerald-200">Launch Special</span>
+                          <span className="font-display font-extrabold text-3xl">$600</span>
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4.5 pt-2">
+                        <div className="flex items-start gap-3 bg-white/5 p-4 rounded-2xl border border-white/10">
+                          <CheckCircle2 className="w-5 h-5 text-emerald-300 shrink-0 mt-0.5" />
+                          <div className="space-y-0.5">
+                            <div className="font-bold text-sm">📚 2 Weeks Program</div>
+                            <div className="text-[11px] text-emerald-100">Intensive class & laboratory work designed for rapid learning.</div>
+                          </div>
+                        </div>
+
+                        <div className="flex items-start gap-3 bg-white/5 p-4 rounded-2xl border border-white/10">
+                          <GraduationCap className="w-5 h-5 text-emerald-300 shrink-0 mt-0.5" />
+                          <div className="space-y-0.5">
+                            <div className="font-bold text-sm">🎓 Guaranteed Placement</div>
+                            <div className="text-[11px] text-emerald-100">Guaranteed job placement after successful completion of the course.</div>
+                          </div>
+                        </div>
+
+                        <div className="flex items-start gap-3 bg-white/5 p-4 rounded-2xl border border-white/10">
+                          <Award className="w-5 h-5 text-emerald-300 shrink-0 mt-0.5" />
+                          <div className="space-y-0.5">
+                            <div className="font-bold text-sm">💳 Flexible Payment Plans</div>
+                            <div className="text-[11px] text-emerald-100">Weekly installments or 2-part payments to fit your budget.</div>
+                          </div>
+                        </div>
+
+                        <div className="flex items-start gap-3 bg-white/5 p-4 rounded-2xl border border-white/10">
+                          <ShieldCheck className="w-5 h-5 text-emerald-300 shrink-0 mt-0.5" />
+                          <div className="space-y-0.5">
+                            <div className="font-bold text-sm">🛡️ State Exam Readiness</div>
+                            <div className="text-[11px] text-emerald-100">Comprehensive preparatory materials & mock clinical skills tests.</div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="pt-3 border-t border-white/10 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 text-xs text-emerald-100">
+                        <div className="flex items-center gap-1.5">
+                          <MapPin className="w-4 h-4 text-emerald-300" />
+                          <span>Classes held at 80 S Liberty Street, Powell, OH 43065</span>
+                        </div>
+                        <span className="font-bold tracking-wider italic text-white block">
+                          Compassion. Dignity. Independence.
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* FAQ-style Course curriculum details */}
+                    <div className="bg-brand-cream-50/50 p-6 md:p-8 rounded-3xl border border-brand-cream-100/80 space-y-6">
+                      <h3 className="font-display font-bold text-lg text-brand-blue-950 uppercase tracking-wider border-b border-brand-cream-200 pb-3">
+                        Program Syllabus & Career Paths
+                      </h3>
+                      
+                      <div className="space-y-4 text-xs text-gray-600">
+                        <div className="space-y-1">
+                          <h4 className="font-bold text-brand-blue-950 text-sm">1. Classroom Instruction (Lecture & Theory)</h4>
+                          <p className="leading-relaxed text-gray-500">
+                            Learn essential healthcare laws, safety guidelines, infection control, client dignity, communication skills, and cognitive assistance models.
+                          </p>
+                        </div>
+                        <div className="space-y-1">
+                          <h4 className="font-bold text-brand-blue-950 text-sm">2. Laboratory Training (Hands-On Skills)</h4>
+                          <p className="leading-relaxed text-gray-500">
+                            Practice vital clinical skills in our simulated client facility, including vital signs reading, safe mobility transfers, hygiene support, and feeding assistance.
+                          </p>
+                        </div>
+                        <div className="space-y-1">
+                          <h4 className="font-bold text-brand-blue-950 text-sm">3. Guaranteed Placement Path</h4>
+                          <p className="leading-relaxed text-gray-500">
+                            All students who successfully pass class modules and state licensing examinations are guaranteed direct hiring offers into the Byass Premier clinical network with competitive hourly wages and flexible shifts.
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Course Location & Contacts Info Block */}
+                      <div className="bg-white p-5 rounded-2xl border border-gray-100 shadow-3xs space-y-4">
+                        <div className="text-xs font-bold text-brand-blue-950 uppercase tracking-wider">Contact Administration Office:</div>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-gray-600">
+                          <div className="space-y-2">
+                            <div className="flex items-center gap-2">
+                              <MapPin className="w-4 h-4 text-emerald-600" />
+                              <span>80 S Liberty Street, Powell, OH 43065</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <Mail className="w-4 h-4 text-emerald-600" />
+                              <a href="mailto:info@byasspremier.com" className="hover:text-emerald-700">info@byasspremier.com</a>
+                            </div>
+                          </div>
+                          <div className="space-y-2">
+                            <div className="flex items-start gap-2">
+                              <Phone className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                              <div className="flex flex-col">
+                                <a href="tel:+16142963599" className="hover:text-emerald-700">(614) 296-3599</a>
+                                <a href="tel:+16144016775" className="hover:text-emerald-700">(614) 401-6775</a>
+                              </div>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <Globe className="w-4 h-4 text-emerald-600" />
+                              <a href="https://www.byasspremier.com" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-700">www.byasspremier.com</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Right Column: Enrollment Form (5 cols) */}
+                  <div className="lg:col-span-5">
+                    <STNATrainingForm />
+                  </div>
+                </div>
               </motion.div>
             )}
 

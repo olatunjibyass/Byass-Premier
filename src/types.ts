@@ -88,4 +88,5 @@ export type PageView =
   | 'testimonials'
   | 'faq'
   | 'contact'
-  | 'portal';
+  | 'portal'
+  | 'training';
