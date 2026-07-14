@@ -4,7 +4,7 @@
  */
 
 import React from 'react';
-import { Phone, GraduationCap, BookOpen } from 'lucide-react';
+import { Phone, GraduationCap, Users } from 'lucide-react';
 import { PageView } from '../types';
 
 interface NavbarProps {

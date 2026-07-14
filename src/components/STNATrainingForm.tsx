@@ -3,110 +3,182 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React from 'react';
-import { Phone, AlertTriangle, GraduationCap, Clock, CheckCircle, Calendar, Sparkles } from 'lucide-react';
+import React, { useState } from 'react';
+import { CheckCircle2, GraduationCap, Calendar, Phone, Mail, Clock, Send, DollarSign, Award } from 'lucide-react';
 
 export default function STNATrainingForm() {
-  return (
-    <div className="bg-slate-900 text-white rounded-3xl shadow-xl border border-slate-800 p-6 md:p-8 space-y-6 relative overflow-hidden">
-      {/* Decorative background flare */}
-      <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-24 h-24 bg-teal-500/10 rounded-full blur-2xl pointer-events-none" />
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    phone: '',
+    preferredSchedule: 'Day Shift (2 Weeks)',
+    paymentOption: 'Full Payment ($600)',
+    hasExperience: 'No',
+    notes: '',
+  });
 
-      {/* Urgency Alert Badge */}
-      <div className="flex items-center gap-2 px-3 py-2 bg-amber-500/10 border border-amber-500/20 rounded-2xl text-amber-300">
-        <AlertTriangle className="w-5 h-5 shrink-0 text-amber-400" />
-        <div className="text-xs font-bold uppercase tracking-wider">
-          Class Seats Filling Fast!
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.fullName || !formData.email || !formData.phone) {
+      alert('Please fill out all required fields.');
+      return;
+    }
+    setSubmitted(true);
+  };
+
+  if (submitted) {
+    return (
+      <div className="bg-emerald-50 border border-emerald-200 rounded-3xl p-8 text-center space-y-4 max-w-lg mx-auto shadow-sm fade-in">
+        <div className="mx-auto w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center">
+          <CheckCircle2 className="w-9 h-9" />
         </div>
-      </div>
-
-      {/* Main Title & Statement */}
-      <div className="space-y-2">
-        <h3 className="font-display font-black text-2xl text-white tracking-tight flex items-center gap-2">
-          <GraduationCap className="w-6 h-6 text-emerald-400" />
-          <span>Call Us To Secure Your Seat</span>
+        <h3 className="font-display font-extrabold text-2xl text-slate-900 tracking-tight">
+          Enrollment Inquiry Submitted!
         </h3>
-        <p className="text-xs text-slate-300 leading-relaxed">
-          Due to extremely high demand and our limited-time <span className="text-emerald-400 font-bold">$600 Launch Special</span>, remaining classroom and clinical slots are getting filled very quickly. 
+        <p className="text-sm text-slate-600 leading-relaxed max-w-sm mx-auto">
+          Thank you, <span className="font-semibold text-emerald-700">{formData.fullName}</span>. Your STNA course registration inquiry has been received.
         </p>
-        <p className="text-xs text-slate-300 leading-relaxed">
-          Online enrollment form registrations are currently paused. <span className="font-semibold text-white">Direct call-in is required</span> to lock in your schedule and promotional tuition pricing.
+        <p className="text-xs text-slate-500 leading-relaxed max-w-sm mx-auto">
+          An administration coordinator will contact you at <span className="font-semibold text-slate-700">{formData.phone}</span> or <span className="font-semibold text-slate-700">{formData.email}</span> within 24 business hours to complete your orientation paperwork and confirm your slot.
+        </p>
+        <div className="bg-white rounded-xl p-4.5 border border-emerald-100 text-left space-y-2 max-w-xs mx-auto">
+          <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Registration Summary:</div>
+          <div className="text-xs text-slate-700"><span className="font-semibold">Schedule:</span> {formData.preferredSchedule}</div>
+          <div className="text-xs text-slate-700"><span className="font-semibold">Tuition Option:</span> {formData.paymentOption}</div>
+        </div>
+        <button
+          onClick={() => {
+            setSubmitted(false);
+            setFormData({
+              fullName: '',
+              email: '',
+              phone: '',
+              preferredSchedule: 'Day Shift (2 Weeks)',
+              paymentOption: 'Full Payment ($600)',
+              hasExperience: 'No',
+              notes: '',
+            });
+          }}
+          className="text-xs font-semibold text-emerald-700 hover:text-emerald-800 underline block mx-auto cursor-pointer"
+        >
+          Submit Another Inquiry
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <div className="bg-white rounded-3xl shadow-sm border border-brand-cream-200/80 p-6 md:p-8 space-y-6">
+      <div className="space-y-1.5">
+        <h3 className="font-display font-black text-xl text-brand-blue-950 uppercase tracking-wide flex items-center gap-2">
+          <GraduationCap className="w-5 h-5 text-emerald-600" />
+          <span>Course Registration Intake</span>
+        </h3>
+        <p className="text-xs text-gray-500 leading-relaxed">
+          Ready to kickstart your nursing career? Fill out the secure registration inquiry form below. Our classes fill up quickly.
         </p>
       </div>
 
-      {/* High-visibility Phone Actions */}
-      <div className="space-y-3 pt-2">
-        <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block">
-          Call Admissions Support Now:
+      <form onSubmit={handleSubmit} className="space-y-4 text-xs">
+        <div className="space-y-1">
+          <label className="block font-bold text-gray-700 uppercase tracking-wider">Full Name <span className="text-red-500">*</span></label>
+          <input
+            type="text"
+            required
+            className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 focus:outline-hidden focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-gray-50/50"
+            placeholder="Jane Doe"
+            value={formData.fullName}
+            onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+          />
         </div>
-        
-        <div className="grid grid-cols-1 gap-3">
-          <a
-            href="tel:+16142963599"
-            className="flex items-center justify-between p-4 bg-emerald-600 hover:bg-emerald-500 text-white rounded-2xl transition-all duration-300 group shadow-md"
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="space-y-1">
+            <label className="block font-bold text-gray-700 uppercase tracking-wider">Email Address <span className="text-red-500">*</span></label>
+            <input
+              type="email"
+              required
+              className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 focus:outline-hidden focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-gray-50/50"
+              placeholder="jane@example.com"
+              value={formData.email}
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+            />
+          </div>
+          <div className="space-y-1">
+            <label className="block font-bold text-gray-700 uppercase tracking-wider">Phone Number <span className="text-red-500">*</span></label>
+            <input
+              type="tel"
+              required
+              className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 focus:outline-hidden focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-gray-50/50"
+              placeholder="(614) 555-0199"
+              value={formData.phone}
+              onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+            />
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="space-y-1">
+            <label className="block font-bold text-gray-700 uppercase tracking-wider">Preferred Class Schedule</label>
+            <select
+              className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 focus:outline-hidden focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-gray-50/50"
+              value={formData.preferredSchedule}
+              onChange={(e) => setFormData({ ...formData, preferredSchedule: e.target.value })}
+            >
+              <option value="Day Shift (2 Weeks)">Day Shift (2 Weeks)</option>
+              <option value="Evening Shift (4 Weeks)">Evening Shift (4 Weeks)</option>
+              <option value="Weekend Shift (5 Weeks)">Weekend Shift (5 Weeks)</option>
+            </select>
+          </div>
+
+          <div className="space-y-1">
+            <label className="block font-bold text-gray-700 uppercase tracking-wider">Tuition Payment Option</label>
+            <select
+              className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 focus:outline-hidden focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-gray-50/50"
+              value={formData.paymentOption}
+              onChange={(e) => setFormData({ ...formData, paymentOption: e.target.value })}
+            >
+              <option value="Full Payment ($600)">Full Payment ($600)</option>
+              <option value="2-Part Payment Plans">2-Part Payment Plan</option>
+              <option value="Weekly Installments">Weekly Installments</option>
+            </select>
+          </div>
+        </div>
+
+        <div className="space-y-1">
+          <label className="block font-bold text-gray-700 uppercase tracking-wider">Any Previous Caregiver Experience?</label>
+          <select
+            className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 focus:outline-hidden focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-gray-50/50"
+            value={formData.hasExperience}
+            onChange={(e) => setFormData({ ...formData, hasExperience: e.target.value })}
           >
-            <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                <Phone className="w-4.5 h-4.5" />
-              </div>
-              <div className="text-left">
-                <div className="text-[9px] font-bold uppercase tracking-wider text-emerald-100">Primary Line (24/7)</div>
-                <div className="text-base font-extrabold tracking-tight">(614) 296-3599</div>
-              </div>
-            </div>
-            <span className="text-xs bg-white/20 px-2.5 py-1 rounded-lg font-bold uppercase tracking-wider text-[10px]">
-              Call Now
-            </span>
-          </a>
-
-          <a
-            href="tel:+16144016775"
-            className="flex items-center justify-between p-4 bg-slate-800 hover:bg-slate-700 text-white rounded-2xl transition-all duration-300 group border border-slate-700/60"
-          >
-            <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-slate-700 flex items-center justify-center group-hover:scale-110 transition-transform">
-                <Phone className="w-4.5 h-4.5 text-emerald-400" />
-              </div>
-              <div className="text-left">
-                <div className="text-[9px] font-bold uppercase tracking-wider text-slate-400">Secondary Line</div>
-                <div className="text-base font-extrabold tracking-tight">(614) 401-6775</div>
-              </div>
-            </div>
-            <span className="text-xs bg-slate-700 text-emerald-400 px-2.5 py-1 rounded-lg font-bold uppercase tracking-wider text-[10px]">
-              Call Now
-            </span>
-          </a>
+            <option value="No">No, I am completely new to the industry</option>
+            <option value="Yes - Informal">Yes, informal/family care experience</option>
+            <option value="Yes - Professional">Yes, professional caregiving experience</option>
+          </select>
         </div>
-      </div>
 
-      {/* Helpful guidelines for caller */}
-      <div className="bg-slate-950/80 p-4.5 rounded-2xl border border-slate-800/80 space-y-3">
-        <div className="flex items-center gap-1.5 text-emerald-400 font-semibold text-xs">
-          <Sparkles className="w-3.5 h-3.5" />
-          <span>Quick Preparation Checklist:</span>
+        <div className="space-y-1">
+          <label className="block font-bold text-gray-700 uppercase tracking-wider">Additional Notes / Questions (Optional)</label>
+          <textarea
+            rows={3}
+            className="w-full px-3.5 py-2.5 rounded-xl border border-gray-200 focus:outline-hidden focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-gray-50/50"
+            placeholder="Let us know if you need financial assistance information, scheduling details, or have specific questions..."
+            value={formData.notes}
+            onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
+          />
         </div>
-        
-        <ul className="space-y-2 text-[11px] text-slate-300">
-          <li className="flex items-start gap-2">
-            <CheckCircle className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" />
-            <span>Mention the <span className="text-white font-semibold">STNA $600 Launch Special</span> discount rate.</span>
-          </li>
-          <li className="flex items-start gap-2">
-            <CheckCircle className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" />
-            <span>Select your shift preference (Morning, Evening, or Weekend).</span>
-          </li>
-          <li className="flex items-start gap-2">
-            <CheckCircle className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" />
-            <span>Inquire about flexible payment installment plans.</span>
-          </li>
-        </ul>
-      </div>
 
-      {/* Footer slogan */}
-      <div className="text-center text-[10px] text-slate-500 pt-1 border-t border-slate-800/60">
-        Admissions lines open 24 hours. Class location: Powell, OH.
-      </div>
+        <button
+          type="submit"
+          className="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold rounded-2xl transition-all shadow-md uppercase tracking-wider text-xs flex items-center justify-center gap-2 cursor-pointer mt-2"
+        >
+          <Send className="w-4 h-4" />
+          <span>Submit Course Enrollment</span>
+        </button>
+      </form>
     </div>
   );
 }

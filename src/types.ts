@@ -12,6 +12,9 @@ export interface Service {
   category: 'clinical' | 'daily-living' | 'specialized';
   benefits: string[];
   typicalPlan: string;
+  whoWeServe?: string[];
+  whyChoose?: string[];
+  referralTypes?: string[];
 }
 
 export interface FAQ {

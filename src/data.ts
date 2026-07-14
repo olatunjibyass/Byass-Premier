@@ -165,6 +165,52 @@ export const SERVICES: Service[] = [
       'Eliminating transportation stress for working family members'
     ],
     typicalPlan: 'Can be booked as a standalone service for specific errands or integrated into regular daily care shifts.'
+  },
+  {
+    id: 'supervised-visitation',
+    title: 'Supervised Visitation Services',
+    shortDescription: 'Safe, neutral, and child-focused visitation services observed by trained professionals to maintain healthy family connections.',
+    fullDescription: 'At Byass Premier Healthcare, we understand that maintaining healthy family connections is important, even during difficult circumstances. Our Supervised Visitation Services provide a safe, neutral, and supportive environment where children can maintain meaningful contact with parents or family members while ensuring the child’s safety and well-being. Our trained visitation supervisors observe interactions, document visits when requested, and help create a calm, respectful environment for everyone involved.',
+    icon: 'HeartHandshake',
+    category: 'specialized',
+    benefits: [
+      'Supervised Visitation: Court-ordered or privately requested supervised visits conducted in a neutral, child-friendly setting.',
+      'Community-Based Visits: Supervised visits that take place in approved public locations such as parks, restaurants, libraries, or recreational facilities.',
+      'Supervised Exchanges: Safe exchanges of children between parents or guardians to minimize conflict and reduce stress for children.',
+      'Observation & Documentation: Objective visit summaries and documentation provided when requested or required.',
+      'Family Support: Professional, respectful guidance designed to promote positive parent-child interaction while maintaining appropriate boundaries.'
+    ],
+    typicalPlan: 'Tailored precisely around court mandates or mutual parenting agreements, scheduling weekend, evening, or weekday options.',
+    whoWeServe: [
+      'Family Courts',
+      'Juvenile Courts',
+      'Domestic Relations Courts',
+      'Attorneys',
+      'Guardian ad Litems',
+      'Child Protective Services',
+      'Social Service Agencies',
+      'Foster Care Agencies',
+      'Private Families'
+    ],
+    whyChoose: [
+      'Safe, Neutral Environment',
+      'Child-Focused Approach',
+      'Confidential & Professional',
+      'Flexible Scheduling',
+      'Weekend & Evening Appointments Available',
+      'Objective Documentation',
+      'Respectful Service for All Parties'
+    ],
+    referralTypes: [
+      'Courts',
+      'Attorneys',
+      'Caseworkers',
+      'Guardians ad Litem',
+      'Therapists',
+      'Foster Agencies',
+      'Parents',
+      'Legal Guardians'
+    ]
   }
 ];
 
