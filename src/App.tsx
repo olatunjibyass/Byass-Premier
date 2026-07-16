@@ -66,9 +66,9 @@ import STNATrainingForm from './components/STNATrainingForm';
 import InteractiveMap from './components/InteractiveMap';
 import PortalDashboard from './components/PortalDashboard';
 
-// Import local leadership images
-import IMAGE_TEEJAY from './assets/images/teejay_byass.png';
-import IMAGE_PRINCESS from './assets/images/princess_heirsmac.jpg';
+// Leadership images
+const IMAGE_TEEJAY = 'https://i.postimg.cc/8zB9Nwv9/Whats-App-Image-2026-07-09-at-5-59-35-PM-(1).jpg';
+const IMAGE_PRINCESS = 'https://i.postimg.cc/fWtPJMX8/Whats-App-Image-2026-07-09-at-3-46-36-PM-(1).jpg';
 
 // Image paths from asset generation imported statically for production reliability
 const IMAGE_HERO = 'https://i.postimg.cc/134yyr35/Capture.png';
@@ -426,11 +426,22 @@ export default function App() {
 
                       <div className="flex flex-col sm:flex-row gap-3 pt-2">
                         <a
-                          href="tel:+16142963599"
+                          href="https://app.acuityscheduling.com/schedule.php?owner=39850636&appointmentType=95816347"
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="bg-brand-blue-500 hover:bg-brand-blue-400 text-white font-bold text-sm px-8 py-3.5 rounded-xl transition-all shadow-lg shadow-brand-blue-500/20 text-center inline-flex items-center justify-center gap-2"
                         >
-                          <Phone className="w-4 h-4" />
-                          <span>Request Care: (614) 296-3599</span>
+                          <Calendar className="w-4 h-4 text-brand-sage-400" />
+                          <span>Virtual Training Consultation</span>
+                        </a>
+                        <a
+                          href="https://app.acuityscheduling.com/schedule.php?owner=39850636&appointmentType=95815688"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="bg-brand-blue-500 hover:bg-brand-blue-400 text-white font-bold text-sm px-8 py-3.5 rounded-xl transition-all shadow-lg shadow-brand-blue-500/20 text-center inline-flex items-center justify-center gap-2"
+                        >
+                          <HeartHandshake className="w-4 h-4 text-brand-sage-400" />
+                          <span>Private Pay Client Intake Consultation</span>
                         </a>
                       </div>
 
