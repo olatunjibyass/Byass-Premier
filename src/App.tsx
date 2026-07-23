@@ -409,9 +409,15 @@ export default function App() {
                   
                   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <div className="space-y-6">
-                      <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-brand-blue-800/80 border border-brand-blue-700 rounded-full text-xs font-semibold text-brand-blue-200 uppercase tracking-wider">
-                        <Award className="w-4 h-4 text-brand-sage-500 fill-brand-sage-500" />
-                        <span>The Gold Standard in In-Home Caregiving</span>
+                      <div className="flex flex-wrap items-center gap-2">
+                        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-brand-blue-800/80 border border-brand-blue-700 rounded-full text-xs font-semibold text-brand-blue-200 uppercase tracking-wider">
+                          <Award className="w-4 h-4 text-brand-sage-500 fill-brand-sage-500" />
+                          <span>The Gold Standard in In-Home Caregiving</span>
+                        </div>
+                        <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-brand-sage-500/20 border border-brand-sage-400/50 rounded-full text-xs font-black text-brand-sage-300 shadow-xs">
+                          <MapPin className="w-3.5 h-3.5 text-brand-sage-400" />
+                          <span>Now Serving Ohio & Michigan!</span>
+                        </div>
                       </div>
                       
                       <h1 className="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-white leading-[1.08]">
@@ -698,53 +704,64 @@ export default function App() {
                     </h2>
                   </div>
 
-                  <div className="bg-white border border-brand-cream-200 rounded-3xl p-6 md:p-8 shadow-sm max-w-4xl mx-auto">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-                      <div className="space-y-6">
-                        <div className="space-y-2">
-                          <h3 className="font-display font-bold text-xl text-brand-blue-950">
-                            Byass Premier Headquarters
-                          </h3>
-                          <div className="flex items-start gap-3 text-slate-600 mt-3">
-                            <MapPin className="w-5 h-5 text-brand-blue-500 shrink-0 mt-0.5" />
-                            <span className="text-sm">
+                  <div className="bg-white border border-brand-cream-200 rounded-3xl p-6 md:p-8 shadow-sm max-w-4xl mx-auto space-y-6">
+                    <div className="text-center max-w-xl mx-auto space-y-2">
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-brand-sage-500/20 text-brand-blue-900 border border-brand-sage-300 font-extrabold text-[11px] rounded-full uppercase tracking-wider">
+                        <MapPin className="w-3.5 h-3.5 text-brand-sage-600" /> Regional Care Coverage
+                      </span>
+                      <h3 className="font-display font-extrabold text-2xl text-brand-blue-950">Now Serving Ohio & Michigan</h3>
+                      <p className="text-xs text-slate-500">Providing licensed in-home healthcare, companion support, and private consultations across both states.</p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+                      {/* Ohio HQ */}
+                      <div className="space-y-4 p-5 bg-brand-cream-50/50 border border-brand-cream-200/60 rounded-2xl flex flex-col justify-between">
+                        <div className="space-y-3">
+                          <span className="text-[10px] bg-brand-blue-100 text-brand-blue-800 font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                            Ohio Headquarters
+                          </span>
+                          <h4 className="font-display font-bold text-lg text-brand-blue-950">
+                            Powell Office
+                          </h4>
+                          <div className="flex items-start gap-2.5 text-slate-600 text-xs">
+                            <MapPin className="w-4 h-4 text-brand-blue-500 shrink-0 mt-0.5" />
+                            <span>
                               80 S Liberty Street<br />
-                              Powell Ohio 43065
+                              Powell, OH 43065
                             </span>
                           </div>
                         </div>
 
-                        <div className="space-y-2 pt-2 border-t border-slate-100">
-                          <h4 className="font-display font-semibold text-sm text-brand-blue-900 uppercase tracking-wider">
-                            Office Hours & General Inquiries
-                          </h4>
-                          <p className="text-xs text-slate-500 leading-relaxed">
-                            Monday – Friday: 9:00 AM – 5:00 PM<br />
-                            On-Call Coordinator: 24 Hours / 7 Days a Week
-                          </p>
-                          <p className="text-xs text-slate-500 mt-1">
-                            Email: <a href="mailto:info@byasspremier.com" className="text-brand-blue-600 hover:underline">info@byasspremier.com</a>
-                          </p>
+                        <div className="pt-3 border-t border-slate-200/60 text-xs text-slate-500 space-y-1">
+                          <p className="font-semibold text-slate-700">Hours & Inquiries:</p>
+                          <p>Mon – Fri: 9:00 AM – 5:00 PM</p>
+                          <p>Email: <a href="mailto:info@byasspremier.com" className="text-brand-blue-600 hover:underline font-medium">info@byasspremier.com</a></p>
                         </div>
                       </div>
 
-                      <div className="bg-brand-blue-50 p-6 md:p-8 rounded-2xl border border-brand-blue-100 space-y-4 text-center">
-                        <div className="inline-flex p-3 bg-brand-blue-100 text-brand-blue-600 rounded-2xl mb-1">
-                          <Phone className="w-6 h-6 animate-pulse" />
+                      {/* Michigan Branch */}
+                      <div className="space-y-4 p-5 bg-gradient-to-br from-brand-blue-900 to-slate-900 text-white border border-brand-blue-800 rounded-2xl flex flex-col justify-between">
+                        <div className="space-y-3">
+                          <div className="flex items-center justify-between">
+                            <span className="text-[10px] bg-brand-sage-500 text-brand-blue-950 font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                              New Branch
+                            </span>
+                            <span className="text-[11px] text-brand-sage-400 font-bold flex items-center gap-1">
+                              <Sparkles className="w-3 h-3" /> Michigan Branch
+                            </span>
+                          </div>
+                          <h4 className="font-display font-bold text-lg text-white">
+                            Now Serving Michigan!
+                          </h4>
+                          <p className="text-xs text-brand-blue-100 leading-relaxed">
+                            Expanded in-home healthcare, companion care, and private client intake consultations now available statewide in Michigan.
+                          </p>
                         </div>
-                        <h3 className="font-display font-bold text-lg text-brand-blue-950">
-                          24/7 Dispatch & Care Requests
-                        </h3>
-                        <p className="text-xs text-slate-600 leading-relaxed">
-                          For immediate care requests, custom safety audits, or urgent hospital discharge coordination, speak directly with our lead nursing team:
-                        </p>
-                        <a 
-                          href="tel:+16142963599" 
-                          className="inline-flex w-full justify-center items-center gap-2 text-base font-extrabold text-white bg-brand-blue-600 hover:bg-brand-blue-700 px-6 py-3.5 rounded-xl shadow-md transition-colors"
-                        >
-                          <Phone className="w-5 h-5" />
-                          <span>(614) 296-3599</span>
-                        </a>
+
+                        <div className="pt-3 border-t border-brand-blue-800 text-xs text-brand-blue-200 flex items-center justify-between">
+                          <span>Direct On-Call Line:</span>
+                          <a href="tel:+16142963599" className="font-extrabold text-brand-sage-400 hover:underline">(614) 296-3599</a>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -1490,7 +1507,7 @@ export default function App() {
                     Direct Care Assessment & Contact
                   </h1>
                   <p className="text-sm text-gray-500 leading-relaxed">
-                    We initiate customized home healthcare services and conduct complimentary safety audits. Speak directly with our nursing team or visit our Ohio office.
+                    We initiate customized home healthcare services and conduct complimentary safety audits across Ohio & Michigan. Speak directly with our nursing team or schedule a consultation.
                   </p>
                 </div>
 
@@ -1503,15 +1520,31 @@ export default function App() {
                           Main Headquarters
                         </span>
                         <h2 className="font-display font-bold text-2xl text-brand-blue-950 mt-2">
-                          Powell Office
+                          Powell Office (OH)
                         </h2>
                         <div className="flex items-start gap-3 text-slate-600 mt-2">
                           <MapPin className="w-5 h-5 text-brand-blue-500 shrink-0 mt-0.5" />
                           <span className="text-base font-medium">
                             80 S Liberty Street<br />
-                            Powell Ohio 43065
+                            Powell, Ohio 43065
                           </span>
                         </div>
+                      </div>
+
+                      {/* Michigan Expansion Highlight Box */}
+                      <div className="p-4 bg-gradient-to-r from-brand-blue-900 to-slate-900 text-white rounded-2xl border border-brand-blue-800 space-y-2">
+                        <div className="flex items-center justify-between">
+                          <span className="text-[10px] bg-brand-sage-500 text-brand-blue-950 font-black px-2 py-0.5 rounded-full uppercase tracking-wider">
+                            Now Open
+                          </span>
+                          <span className="text-xs text-brand-sage-300 font-bold flex items-center gap-1">
+                            <Sparkles className="w-3.5 h-3.5" /> Michigan Branch
+                          </span>
+                        </div>
+                        <h4 className="font-display font-bold text-sm text-white">Now Serving Michigan Statewide!</h4>
+                        <p className="text-xs text-brand-blue-100 leading-relaxed">
+                          Providing direct in-home healthcare, companion support, and private pay consultations for clients across Michigan.
+                        </p>
                       </div>
 
                       <div className="space-y-2 pt-4 border-t border-slate-100">

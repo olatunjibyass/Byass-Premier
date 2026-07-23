@@ -163,16 +163,25 @@ We accept clients and hire caregivers without regard to race, creed, religion, a
           {/* Contact Details & Newsletter */}
           <div className="space-y-5">
             <h3 className="font-display font-semibold text-white tracking-wide uppercase text-sm border-l-2 border-brand-blue-500 pl-3">
-              Office HQ
+              Locations & HQ
             </h3>
              <ul className="space-y-3.5 text-sm">
               <li className="flex items-start gap-2.5">
                 <MapPin className="w-5 h-5 text-brand-blue-400 shrink-0 mt-0.5" />
                 <span className="text-slate-400">
-                  Byass Premier HQ<br />
+                  <strong className="text-slate-200 block">Ohio Headquarters</strong>
                   80 S Liberty Street<br />
                   Powell, OH 43065
                 </span>
+              </li>
+              <li className="p-2.5 bg-brand-blue-900/80 border border-brand-blue-800 rounded-xl text-xs space-y-1">
+                <div className="flex items-center gap-1.5 text-brand-sage-400 font-extrabold">
+                  <MapPin className="w-3.5 h-3.5 text-brand-sage-400 fill-brand-sage-400" />
+                  <span>Now Serving Michigan!</span>
+                </div>
+                <p className="text-slate-300 text-[11px] leading-snug">
+                  Branch opening: Now accepting private pay & in-home care clients statewide across Michigan.
+                </p>
               </li>
               <li className="flex items-start gap-2.5">
                 <Phone className="w-4 h-4 text-brand-blue-400 mt-0.5" />

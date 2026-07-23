@@ -4,7 +4,7 @@
  */
 
 import React from 'react';
-import { Phone, GraduationCap, Users } from 'lucide-react';
+import { Phone, GraduationCap, Users, MapPin, Sparkles } from 'lucide-react';
 import { PageView } from '../types';
 
 interface NavbarProps {
@@ -34,10 +34,14 @@ export default function Navbar({ currentView, setView, onOpenQuickBooking }: Nav
     <header className="sticky top-0 z-50 bg-white border-b border-brand-cream-200/80 shadow-xs">
       {/* Top Banner Alert for trust & compliance */}
       <div className="bg-brand-blue-900 text-white py-1.5 px-4 text-xs font-medium tracking-wide">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-1">
-          <div className="flex items-center gap-1.5">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+          <div className="flex items-center gap-2 flex-wrap">
             <span className="w-2 h-2 rounded-full bg-brand-sage-500 animate-pulse" />
-            <span>State-Licensed & Fully Bonded Compassionate Care In-Home Specialists</span>
+            <span>State-Licensed & Fully Bonded Compassionate Care Specialists</span>
+            <span className="bg-brand-sage-500 text-brand-blue-950 font-black px-2.5 py-0.5 rounded-full text-[10px] tracking-wide inline-flex items-center gap-1 shadow-xs border border-brand-sage-300">
+              <MapPin className="w-3 h-3 text-brand-blue-950 fill-brand-blue-950" />
+              <span>Now Serving Michigan!</span>
+            </span>
           </div>
           <div className="flex items-center gap-4">
             <a href="tel:+16142963599" className="flex items-center gap-1 hover:text-brand-blue-200 transition-colors">
