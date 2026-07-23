@@ -416,7 +416,7 @@ export default function App() {
                         </div>
                         <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-brand-sage-500/20 border border-brand-sage-400/50 rounded-full text-xs font-black text-brand-sage-300 shadow-xs">
                           <MapPin className="w-3.5 h-3.5 text-brand-sage-400" />
-                          <span>Now Serving Ohio & Michigan!</span>
+                          <span>Now Serving Michigan!</span>
                         </div>
                       </div>
                       
