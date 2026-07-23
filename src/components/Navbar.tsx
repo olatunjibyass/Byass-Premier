@@ -32,23 +32,29 @@ export default function Navbar({ currentView, setView, onOpenQuickBooking }: Nav
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-brand-cream-200/80 shadow-xs">
-      {/* Top Banner Alert for trust & compliance */}
-      <div className="bg-brand-blue-900 text-white py-1.5 px-4 text-xs font-medium tracking-wide">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
-          <div className="flex items-center gap-2 flex-wrap">
-            <span className="w-2 h-2 rounded-full bg-brand-sage-500 animate-pulse" />
-            <span>State-Licensed & Fully Bonded Compassionate Care Specialists</span>
-            <span className="bg-brand-sage-500 text-brand-blue-950 font-black px-2.5 py-0.5 rounded-full text-[10px] tracking-wide inline-flex items-center gap-1 shadow-xs border border-brand-sage-300">
-              <MapPin className="w-3 h-3 text-brand-blue-950 fill-brand-blue-950" />
-              <span>Now Serving Michigan!</span>
-            </span>
-          </div>
-          <div className="flex items-center gap-4">
-            <a href="tel:+16142963599" className="flex items-center gap-1 hover:text-brand-blue-200 transition-colors">
-              <Phone className="w-3.5 h-3.5" />
-              <span>Call 24/7 Care Support: (614) 296-3599</span>
-            </a>
-          </div>
+      {/* Top Rolling Marquee Bar for Michigan Expansion & Care Alerts */}
+      <div className="bg-brand-blue-950 text-white py-2 border-b border-brand-blue-800/80 overflow-hidden relative select-none font-medium text-xs tracking-wide">
+        <div className="animate-marquee whitespace-nowrap flex items-center">
+          {[1, 2, 3, 4].map((i) => (
+            <div key={i} className="flex items-center gap-8 shrink-0 pr-8">
+              <span className="bg-brand-sage-500 text-brand-blue-950 font-black px-2.5 py-0.5 rounded-full text-[10px] uppercase tracking-wider inline-flex items-center gap-1 shadow-xs border border-brand-sage-300">
+                <Sparkles className="w-3 h-3 text-brand-blue-950" />
+                NOW SERVING MICHIGAN!
+              </span>
+              <span className="flex items-center gap-2 text-brand-cream-100 font-semibold">
+                <MapPin className="w-3.5 h-3.5 text-brand-sage-400" />
+                <span>Expanded Care Coverage in Ohio & Michigan</span>
+              </span>
+              <span className="text-brand-blue-300">•</span>
+              <span className="text-slate-200">State-Licensed & Fully Bonded Caregiver Specialists</span>
+              <span className="text-brand-blue-300">•</span>
+              <a href="tel:+16142963599" className="flex items-center gap-1.5 text-brand-sage-300 hover:text-white font-bold transition-colors">
+                <Phone className="w-3.5 h-3.5 text-brand-sage-400" />
+                <span>24/7 Direct Care Line: (614) 296-3599</span>
+              </a>
+              <span className="text-brand-blue-300">•</span>
+            </div>
+          ))}
         </div>
       </div>
 
